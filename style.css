@@ -160,3 +160,12 @@ ul {
 .button-draw:hover {
     background-color: var(--color-button-hover);
 }
+
+/* Estilos para la imagen del botón "Limpiar nombres" */
+.button-clear img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+    object-fit: contain;
+}
