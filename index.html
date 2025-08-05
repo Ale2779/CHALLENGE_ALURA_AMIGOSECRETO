@@ -16,20 +16,16 @@
             <h1 class="main-title">Amigo Secreto</h1>
             <img src="assets/amigo-secreto.png" alt="Imagen representativa de amigo secreto">
         </header>
-        
         <section class="input-section">
-            <h2 class="section-title">Digite el nombre de sus amigos</h2>
+            <h2 class="section-title">Agrega los nombres de tus amigos</h2>
             <div class="input-wrapper">
-                <input type="text" id="nombre" class="input-name" placeholder="Escribe un nombre">
+                <input type="text" id="nombre" class="input-name" placeholder="Escribe un nombre" autocomplete="off" maxlength="30">
                 <button class="button-add" onclick="agregarNombre()">Añadir</button>
             </div>
-           
             <ul id="listaNombres" class="name-list" aria-labelledby="listaNombres" role="list"></ul>
-            <ul id="resultado" class="result-list" aria-live="polite"></ul>
-
             <div class="button-container">
                 <button class="button-draw" onclick="sortearAmigo()" aria-label="Sortear amigo secreto">
-                    <img src="assets/play_circle_outline.png" alt="Ícono para sortear">
+                    <img src="assets/imgsorteo.jpg" alt="Ícono para sortear">
                     Sortear amigo
                 </button>
                 <button class="button-clear" onclick="limpiarNombres()" aria-label="Limpiar nombres">
@@ -37,9 +33,9 @@
                     Limpiar nombres
                 </button>
             </div>
+            <ul id="resultado" class="result-list" aria-live="polite"></ul>
         </section>
     </main>
-
-    <script src="app.js" ></script>
+    <script src="app.js"></script>
 </body>
 </html>

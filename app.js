@@ -1,48 +1,52 @@
 let nombres = [];
 
-
+// Agrega un nombre a la lista y actualiza la visualización
 function agregarNombre() {
-    let input = document.getElementById("nombre");
-    let nombre = input.value.trim();
+    const input = document.getElementById("nombre");
+    const nombre = input.value.trim();
 
-    if (nombre === "") {
+    if (!nombre) {
         alert("Por favor, ingresa un nombre válido.");
         return;
     }
 
     nombres.push(nombre);
-    actualizarLista();
-    input.value = ""; // Limpiar campo después de agregar
+    mostrarAmigos(nombres);
+    input.value = "";
 }
 
-function actualizarLista() {
-    let lista = document.getElementById("listaNombres");
+// Muestra los amigos en la lista de forma robusta y sin duplicados
+function mostrarAmigos(amigos) {
+    const lista = document.getElementById("listaNombres");
+    if (!lista) return;
     lista.innerHTML = "";
 
-    nombres.forEach((nombre, index) => {
-        let item = document.createElement("li");
-        item.textContent = nombre;
-        lista.appendChild(item);
-    });
+    for (let i = 0; i < amigos.length; i++) {
+        const li = document.createElement("li");
+        li.textContent = amigos[i];
+        lista.appendChild(li);
+    }
 }
 
+// Sortea un amigo secreto de la lista
 function sortearAmigo() {
-    if (nombres.length === 0) {
+    if (!Array.isArray(nombres) || nombres.length === 0) {
         alert("La lista está vacía. Agrega nombres antes de sortear.");
         return;
     }
-
-    let indiceAleatorio = Math.floor(Math.random() * nombres.length);
-    let ganador = nombres[indiceAleatorio];
-
-    document.getElementById("resultado").textContent = "🎉 Amigo Secreto: " + ganador + " 🎉";
+    const indiceAleatorio = Math.floor(Math.random() * nombres.length);
+    const ganador = nombres[indiceAleatorio];
+    const resultado = document.getElementById("resultado");
+    if (resultado) {
+        resultado.textContent = `🎉 Amigo Secreto: ${ganador} 🎉`;
+    }
 }
 
+// Limpia la lista de nombres y el resultado
 function limpiarNombres() {
-    document.getElementById('listaNombres').innerHTML = '';
-    document.getElementById('resultado').innerHTML = '';
-    // Si tienes una variable de nombres en JS, también límpiala:
-    if (typeof nombres !== 'undefined') {
-        nombres = [];
-    }
+    nombres = [];
+    const lista = document.getElementById("listaNombres");
+    const resultado = document.getElementById("resultado");
+    if (lista) lista.innerHTML = "";
+    if (resultado) resultado.innerHTML = "";
 }
