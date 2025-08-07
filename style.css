@@ -1,5 +1,9 @@
+/* Reset y cuerpo */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 
-html, body {
+body {
     margin: 0;
     padding: 0;
     font-family: 'Inter', 'Merriweather', sans-serif;
@@ -7,24 +11,31 @@ html, body {
     min-height: 100vh;
 }
 
+/* Contenido principal */
 .main-content {
-    max-width: 500px;
+    max-width: 600px;
     margin: 40px auto;
     background: #fff;
     border-radius: 24px;
     box-shadow: 0 4px 32px rgba(79,140,255,0.10);
     padding: 40px 28px;
-    transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s ease-in-out;
 }
 .main-content:hover {
     box-shadow: 0 8px 40px rgba(79,140,255,0.18);
 }
 
+/* Encabezado */
 .header-banner {
     text-align: center;
     margin-bottom: 32px;
 }
-
+.header-banner img {
+    width: 90px;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(53,122,232,0.10);
+}
 .main-title {
     font-size: 2.4rem;
     font-weight: 900;
@@ -34,13 +45,7 @@ html, body {
     text-shadow: 0 2px 8px rgba(53,122,232,0.08);
 }
 
-.header-banner img {
-    width: 90px;
-    height: auto;
-    border-radius: 16px;
-    box-shadow: 0 2px 12px rgba(53,122,232,0.10);
-}
-
+/* Sección de entrada */
 .input-section {
     margin-top: 16px;
     background: #f7faff;
@@ -48,7 +53,6 @@ html, body {
     padding: 18px 12px 24px 12px;
     box-shadow: 0 1px 8px rgba(53,122,232,0.04);
 }
-
 .section-title {
     font-size: 1.3rem;
     font-weight: 700;
@@ -57,74 +61,66 @@ html, body {
     text-align: center;
 }
 
+/* Campos de entrada */
 .input-wrapper {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
     margin-bottom: 18px;
 }
-
 .input-name {
     flex: 1;
     padding: 10px 14px;
     border-radius: 10px;
     border: 1.5px solid #b6c7ff;
     font-size: 1.05rem;
+    background: #f0f4ff;
     outline: none;
     transition: border-color 0.2s, box-shadow 0.2s;
-    background: #f0f4ff;
 }
 .input-name:focus {
     border-color: #357ae8;
     box-shadow: 0 2px 8px rgba(53,122,232,0.08);
 }
 
+/* Botones base */
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(53,122,232,0.10);
+}
+
+/* Botón Añadir */
 .button-add {
     background: linear-gradient(90deg, #357ae8 0%, #4f8cff 100%);
     color: #fff;
     border: none;
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-size: 1.05rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background 0.2s, box-shadow 0.2s;
-    box-shadow: 0 1px 4px rgba(53,122,232,0.10);
 }
 .button-add:hover {
     background: linear-gradient(90deg, #4f8cff 0%, #357ae8 100%);
     box-shadow: 0 2px 8px rgba(53,122,232,0.18);
 }
 
-.name-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 18px 0;
-}
-.amigo-item {
-    background: #e0e7ff;
-    margin-bottom: 8px;
-    padding: 10px 16px;
-    border-radius: 8px;
-    font-size: 1.05rem;
-    color: #2d2d2d;
-    box-shadow: 0 1px 6px rgba(79,140,255,0.09);
-    transition: background 0.2s, box-shadow 0.2s;
-    font-weight: 500;
-}
-.amigo-item:hover {
-    background: #dbeafe;
-    box-shadow: 0 2px 12px rgba(53,122,232,0.10);
-}
-
+/* Contenedor botones */
 .button-container {
     display: flex;
-    gap: 14px;
-    margin-bottom: 18px;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 18px;
+    width: 100%;
 }
 
-.button-draw, .button-clear {
+/* Botón Limpiar y Sortear con las mismas características */
+.button-clear, .button-draw {
     background: #fff;
     color: #357ae8;
     border: 2px solid #357ae8;
@@ -132,48 +128,62 @@ html, body {
     padding: 10px 20px;
     font-size: 1.05rem;
     font-weight: 700;
+    box-shadow: 0 1px 4px rgba(53,122,232,0.10);
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-    box-shadow: 0 1px 4px rgba(53,122,232,0.10);
 }
-.button-draw:hover, .button-clear:hover {
+.button-clear:hover, .button-draw:hover {
     background: #357ae8;
     color: #fff;
     box-shadow: 0 2px 8px rgba(53,122,232,0.18);
 }
 
+/* Iconos */
+.button-draw img, .button-clear img {
+    object-fit: contain;
+    filter: drop-shadow(0 2px 6px rgba(53,122,232,0.10));
+}
 .button-draw img {
     width: 32px;
     height: 32px;
-    vertical-align: middle;
-    margin-right: 10px;
-    object-fit: contain;
-    filter: drop-shadow(0 2px 6px rgba(53,122,232,0.10));
 }
 .button-clear img {
     width: 24px;
     height: 24px;
-    vertical-align: middle;
-    margin-right: 8px;
-    object-fit: contain;
-    filter: drop-shadow(0 2px 6px rgba(53,122,232,0.10));
 }
 
-.result-list {
+/* Listas */
+.name-list, .result-list {
     list-style: none;
     padding: 0;
     margin: 0;
+}
+.name-list {
+    font-size: 1.05rem;
+    color: #357ae8;
+    margin-bottom: 10px;
+}
+.name-list li {
+    background: #e0e7ff;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    padding: 8px 14px;
+    font-weight: 500;
+    box-shadow: 0 1px 4px rgba(53,122,232,0.06);
+}
+.result-list {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #357ae8;
     text-align: center;
+    color: #357ae8;
     min-height: 40px;
     margin-bottom: 10px;
 }
 
+/* Resultado animado */
 .resultado-animado {
     animation: fadeInScale 0.7s cubic-bezier(.4,2,.3,1.1);
     display: inline-block;
@@ -186,11 +196,13 @@ html, body {
     box-shadow: 0 2px 12px rgba(53,122,232,0.10);
 }
 
+/* Animaciones */
 @keyframes fadeInScale {
     0% { opacity: 0; transform: scale(0.7); }
     100% { opacity: 1; transform: scale(1); }
 }
 
+/* Mensajes */
 .mensaje-usuario {
     position: fixed;
     top: 18px;
@@ -201,9 +213,9 @@ html, body {
     border-radius: 12px;
     font-size: 1.05rem;
     font-weight: 700;
-    box-shadow: 0 2px 12px rgba(53,122,232,0.10);
     display: none;
     letter-spacing: 0.5px;
+    box-shadow: 0 2px 12px rgba(53,122,232,0.10);
 }
 .mensaje-usuario.success {
     background: #e6ffed;
@@ -216,54 +228,37 @@ html, body {
     border: 1.5px solid #d32f2f;
 }
 
+/* Responsivo */
 @media (max-width: 600px) {
     .main-content {
-        max-width: 98vw;
-        padding: 12px 2px;
+        max-width: 96vw;
+        padding: 20px 10px;
     }
+
+    .main-title {
+        font-size: 1.6rem;
+    }
+
     .header-banner img {
         width: 56px;
     }
-    .main-title {
-        font-size: 1.4rem;
-    }
+
     .input-section {
-        padding: 10px 2px 16px 2px;
+        padding: 12px 6px;
     }
+
     .input-name {
         font-size: 0.95rem;
-        padding: 8px 8px;
+        padding: 8px;
     }
-    .button-add, .button-draw, .button-clear {
-        font-size: 0.95rem;
-        padding: 8px 10px;
-    }
-    .amigo-item {
-        font-size: 0.95rem;
-        padding: 8px 10px;
-    }
-    .mensaje-usuario {
-        font-size: 0.95rem;
-        padding: 8px 12px;
-    }
+
     .resultado-animado {
         font-size: 1.05rem;
-        padding: 10px 12px;
+        padding: 10px 16px;
     }
-}
-.button-draw img {
-    margin-right: 40px;
-}
 
-.button-draw:hover {
-    background-color: var(--color-button-hover);
-}
-
-/* Estilos para la imagen del botón "Limpiar nombres" */
-.button-clear img {
-    width: 24px;
-    height: 24px;
-    vertical-align: middle;
-    margin-right: 8px;
-    object-fit: contain;
+    .mensaje-usuario {
+        font-size: 0.95rem;
+        padding: 10px 20px;
+    }
 }
